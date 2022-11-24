@@ -1,0 +1,117 @@
+* {box-sizing: border-box;}
+button{
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.navbar,
+.burger,
+.menu,
+.background{
+    position: fixed;
+}
+
+.background{
+    z-index: 1;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    transition: 0.5s;
+
+}
+
+.burger{
+    z-index: 3;
+    top: 0;
+    right: 0;
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    background-image: url("./imgPag/tarjetasPlasticas.png");
+    background-repeat: no-repeat;
+    background-position: center;
+   
+}
+
+.navbar{
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 72px;
+    padding-left: 20px;
+    padding-right: 72px;
+    background-color: #19191c;
+    color:#f9f9f9;
+}
+
+.navbar > button{ font-size: 28px;}
+.navbar-logo{height: 25px;}
+
+.navbar-search{
+    border: 0;
+    height: 40px;
+    background: #2f3339 url("search.svg");
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    border: 0;
+    border-radius: 6px;
+    padding-left: 36px;
+    font-size: 16px;
+}
+.Navbar-search::placeholder {
+    color: #a7a7a7;
+
+}
+
+.menu {
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5 s;
+}
+
+.menu{
+    color: #f9f9f9;
+    font-size: 32px;
+}
+
+/* Style.css */
+body.open.background{
+    filter: blur(20px);
+}
+
+body.open.burger{
+    background-image: url("./imgPag/mario2.jpg");
+}
+
+body.open.menu{
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes appear {
+    0%{ opacity: 0; translate: 0 50px;}
+    100% {opacity: 1;}
+
+}
+
+body.open.menu > a{
+    animation: appear 0.3s;
+}
